@@ -40,16 +40,27 @@ export default function EventChatRoom({
 
     // Connect to socket
     if (!socket.connected) {
-        socket.connect();
+      console.log("Connecting to socket...");
+      socket.connect();
     }
+
+    socket.on("connect", () => {
+      console.log("✅ Socket Connected!", socket.id);
+    });
+
+    socket.on("connect_error", (err) => {
+      console.error("❌ Socket Connection Error:", err);
+    });
 
     // Join room
     const roomId = eventId.toString();
+    console.log("Joining room:", roomId);
     socket.emit("join_room", roomId);
 
     // Listen for incoming messages
     const handleReceiveMessage = (newComment: Message) => {
-        setMessages((prev) => [...prev, newComment]);
+      console.log("📩 Received message:", newComment);
+      setMessages((prev) => [...prev, newComment]);
     };
 
     socket.on("receive_message", handleReceiveMessage);
