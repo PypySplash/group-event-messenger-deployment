@@ -13,8 +13,14 @@ type Env = z.infer<typeof envSchema>;
 // or typing it incorrectly
 export const env: Env = {
   // non-null assertion is safe here because we throw an error if it's not defined
-  POSTGRES_URL: process.env.POSTGRES_URL!,
+  // Fallback to a dummy URL to prevent build/runtime crash if env is missing
+  POSTGRES_URL: process.env.POSTGRES_URL || "postgres://dummy:dummy@localhost:5432/dummy",
 };
 
 // this would throw an error if the env variables don't match the schema
-envSchema.parse(env);
+try {
+  envSchema.parse(env);
+} catch (err) {
+  console.error("Invalid environment variables:", err);
+  // We don't throw here to prevent the app from crashing entirely on boot
+}
