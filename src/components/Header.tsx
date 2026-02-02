@@ -13,7 +13,7 @@ import {
   Users,
 } from "lucide-react";
 
-import larry from "@/assets/larry.png";
+import lineLogo from "@/assets/line.png";
 import { cn } from "@/lib/utils";
 
 import ProfileButton from "./ProfileButton";
@@ -25,7 +25,7 @@ export default function Header() {
       <div className="flex flex-col gap-2">
         <div className="p-2">
           <Link href="/">
-            <Image src={larry} alt="Larry the bird" width={40} height={40} />
+            <Image src={lineLogo} alt="LINE logo" width={40} height={40} />
           </Link>
         </div>
         <Link href="/">

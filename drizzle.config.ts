@@ -12,5 +12,8 @@ export default {
   schema: "./src/db/schema.ts",
   out: "./drizzle",
   driver: "pg",
-  dbCredentials: { connectionString: process.env.POSTGRES_URL },
+  dbCredentials: { 
+    connectionString: process.env.POSTGRES_URL,
+    ssl: true,
+  },
 } satisfies Config;

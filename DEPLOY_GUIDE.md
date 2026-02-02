@@ -2,19 +2,19 @@
 
 1.  **Clone the repo**
 2.  **Install dependencies**:
-    ```bash
-    yarn install
-    ```
+```bash
+yarn install
+```
 3.  **Setup Database**:
-    *   Start local database using Docker:
-        ```bash
-        docker-compose up -d
-        ```
-    *   Create a `.env.local` file (copy from below).
-4.  **Run Migrations**:
+*   Start local database using Docker:
     ```bash
-    yarn migrate
+    docker-compose up -d
     ```
+*   Create a `.env.local` file (copy from below).
+4.  **Run Migrations**:
+```bash
+yarn migrate
+```
 5.  **Start Dev Servers**:
     *   **Frontend**: `yarn dev`
     *   **Socket Server**: `yarn socket`
@@ -42,13 +42,13 @@ You will need to create **3** services on Render.
 
 ### 1. PostgreSQL Database
 *   Create a new **PostgreSQL**.
-*   Name: `twitter-db` (or anything).
+*   Name: `group-event-messenger-deployment` (or anything).
 *   Copy the **Internal Connection URL** provided by Render.
 
 ### 2. Socket Service (Web Service)
 *   Create a new **Web Service**.
 *   Connect your GitHub repo.
-*   **Name**: `twitter-socket`
+*   **Name**: `group-event-messenger-deployment`
 *   **Build Command**: `yarn install`
 *   **Start Command**: `yarn socket`
 *   **Environment Variables**:
