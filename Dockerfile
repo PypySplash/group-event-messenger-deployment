@@ -53,12 +53,14 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Copy necessary files for socket server if run in the same container or separate
 COPY --from=builder --chown=nextjs:nodejs /app/src ./src
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
+# COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
 
 USER nextjs
 
-EXPOSE 3000
+EXPOSE 3001
 
-ENV PORT 3000
+ENV PORT 3001
+ENV HOSTNAME "0.0.0.0"
+
 # By default we run next start
 CMD ["node", "server.js"]
