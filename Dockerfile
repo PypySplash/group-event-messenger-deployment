@@ -26,6 +26,11 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Set dummy environment variables to pass build-time validation
+# These will be overridden by runtime variables in Render
+ENV POSTGRES_URL="postgres://dummy:dummy@localhost:5432/dummy"
+ENV NEXT_PUBLIC_SOCKET_URL="http://localhost:3001"
+
 # Build Next.js
 RUN yarn build
 
