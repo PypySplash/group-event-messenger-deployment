@@ -4,8 +4,14 @@ import { createServer } from "http";
 const httpServer = createServer();
 const io = new Server(httpServer, {
   cors: {
-    origin: "*", // Allow all origins for simplicity
+    origin: [
+      "http://localhost:3000", 
+      "http://localhost:3001",
+      "https://group-event-messenger-deployment.onrender.com"
+    ],
     methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true,
   },
 });
 
