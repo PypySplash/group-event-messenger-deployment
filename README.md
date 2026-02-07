@@ -2,6 +2,12 @@
 
 Full-stack group event messenger with real-time WebSocket chat and deployment configuration. Created with Next.js, PostgreSQL, and Drizzle ORM.
 
+## Preview
+
+| Event Dashboard | Real-time Chat Room |
+|:---:|:---:|
+| <img src="public/dashboard.png" alt="Event Dashboard" width="400"/> | <img src="public/chat.png" alt="Real-time Chat" width="400"/> |
+
 ## Features
 
 - **Event Management**: Create, join, and view details for group events.
