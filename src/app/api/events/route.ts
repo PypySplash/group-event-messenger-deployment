@@ -66,7 +66,7 @@ export async function GET(request: NextRequest) {
 
     const events = await query
       .groupBy(eventsTable.id, usersTable.id, usersTable.displayName)
-      .orderBy(desc(eventsTable.createdAt))
+      .orderBy(desc(eventsTable.startDate))
       .execute();
 
     return NextResponse.json({ events }, { status: 200 });
